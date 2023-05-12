@@ -1,4 +1,4 @@
-package com.kalebits.entities;
+package com.kalebits.dslist.entities;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name="tbl_Desenho")
+@Table(name = "tbl_Desenho")
 public class Desenho {
 
     @Id
