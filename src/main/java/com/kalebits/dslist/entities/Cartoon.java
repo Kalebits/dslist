@@ -6,30 +6,41 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "tbl_Desenho")
-public class Desenho {
+@Table(name = "tbl_Cartoon")
+public class Cartoon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titulo;
-    private Integer ano;
-    private String genero;
+    private String title;
+
+    @Column(name = "cartoon_year")
+    private Integer year;
+    private String genre;
+    private String platforms;
+    private Double score;
     private String imgUrl;
-    private String descricaoCurta;
-    private String descicaoLonga;
 
-    public Desenho(){}
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
 
-    public Desenho(Long id, String titulo, Integer ano, String genero,
-                   String imgUrl, String descricaoCurta, String descicaoLonga) {
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
+    public Cartoon(){}
+
+    public Cartoon(Long id, String title, Integer year, String genre,
+                   String platforms, Double score, String imgUrl,
+                   String shortDescription, String longDescription) {
         this.id = id;
-        this.titulo = titulo;
-        this.ano = ano;
-        this.genero = genero;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
         this.imgUrl = imgUrl;
-        this.descricaoCurta = descricaoCurta;
-        this.descicaoLonga = descicaoLonga;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
     }
 
     public Long getId() {
@@ -40,28 +51,44 @@ public class Desenho {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String titulo) {
+        this.title = titulo;
     }
 
-    public Integer getAno() {
-        return ano;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setAno(Integer ano) {
-        this.ano = ano;
+    public void setYear(Integer ano) {
+        this.year = ano;
     }
 
-    public String getGenero() {
-        return genero;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setGenre(String genero) {
+        this.genre = genero;
+    }
+
+    public String getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {
@@ -72,28 +99,28 @@ public class Desenho {
         this.imgUrl = imgUrl;
     }
 
-    public String getDescricaoCurta() {
-        return descricaoCurta;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setDescricaoCurta(String descricaoCurta) {
-        this.descricaoCurta = descricaoCurta;
+    public void setShortDescription(String descricaoCurta) {
+        this.shortDescription = descricaoCurta;
     }
 
-    public String getDescicaoLonga() {
-        return descicaoLonga;
+    public String getLongDescription() {
+        return longDescription;
     }
 
-    public void setDescicaoLonga(String descicaoLonga) {
-        this.descicaoLonga = descicaoLonga;
+    public void setLongDescription(String descicaoLonga) {
+        this.longDescription = descicaoLonga;
     }
 
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Desenho desenho)) return false;
-        return Objects.equals(id, desenho.id);
+        if (!(o instanceof Cartoon cartoon)) return false;
+        return Objects.equals(id, cartoon.id);
     }
 
     @Override
