@@ -1,11 +1,13 @@
 package com.kalebits.dslist.controllers;
 
 
+import com.kalebits.dslist.dto.CartoonDTO;
 import com.kalebits.dslist.dto.CartoonMinDTO;
 import com.kalebits.dslist.entities.Cartoon;
 import com.kalebits.dslist.services.CartoonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +23,12 @@ public class CartoonController {
     @GetMapping
     public List<CartoonMinDTO> findAll(){
         List<CartoonMinDTO> result = cartoonService.findAll();
+        return result;
+    }
+
+    @GetMapping(value = "/{id}")
+    public CartoonDTO findById(@PathVariable Long id){
+        CartoonDTO result = cartoonService.findByID(id);
         return result;
     }
 
