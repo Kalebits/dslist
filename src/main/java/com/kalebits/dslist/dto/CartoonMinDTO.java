@@ -1,6 +1,7 @@
 package com.kalebits.dslist.dto;
 
 import com.kalebits.dslist.entities.Cartoon;
+import com.kalebits.dslist.projections.CartoonMinProjection;
 
 public class CartoonMinDTO {
 
@@ -20,6 +21,13 @@ public class CartoonMinDTO {
         shortDescription = entity.getShortDescription();
     }
 
+    public CartoonMinDTO(CartoonMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+    }
 
     public Long getId() {
         return id;
