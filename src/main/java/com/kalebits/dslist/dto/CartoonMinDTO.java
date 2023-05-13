@@ -24,7 +24,7 @@ public class CartoonMinDTO {
     public CartoonMinDTO(CartoonMinProjection projection) {
         id = projection.getId();
         title = projection.getTitle();
-        year = projection.getYear();
+        year = projection.getCartoonYear();
         imgUrl = projection.getImgUrl();
         shortDescription = projection.getShortDescription();
     }

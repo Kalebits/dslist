@@ -10,7 +10,7 @@ import java.util.List;
 public interface CartoonRepository extends JpaRepository<Cartoon, Long> {
 
     @Query(nativeQuery = true, value = """
-		SELECT tbl_cartoon.id, tbl_cartoon.title, tbl_cartoon.cartoon_year AS `year`, tbl_cartoon.img_url AS imgUrl,
+		SELECT tbl_cartoon.id, tbl_cartoon.title, tbl_cartoon.cartoon_year AS cartoonYear, tbl_cartoon.img_url AS imgUrl,
 		tbl_cartoon.short_description AS shortDescription, tb_belonging.position
 		FROM tbl_cartoon
 		INNER JOIN tb_belonging ON tbl_cartoon.id = tb_belonging.cartoon_id

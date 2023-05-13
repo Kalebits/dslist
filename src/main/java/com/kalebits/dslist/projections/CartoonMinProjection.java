@@ -5,7 +5,7 @@ public interface CartoonMinProjection {
 
     Long getId();
     String getTitle();
-    Integer getYear();
+    Integer getCartoonYear();
     String getImgUrl();
     String getShortDescription();
     Integer getPosition();

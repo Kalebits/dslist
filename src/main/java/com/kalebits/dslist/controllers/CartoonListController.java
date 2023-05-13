@@ -28,7 +28,7 @@ public class CartoonListController {
         return result;
     }
 
-    @GetMapping(value ="/{listId}/games")
+    @GetMapping(value ="/{listId}/cartoons")
     public List<CartoonMinDTO> findByList(@PathVariable Long listId){
         List<CartoonMinDTO> result = cartoonService.findByList(listId);
         return result;
