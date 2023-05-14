@@ -2,13 +2,11 @@ package com.kalebits.dslist.controllers;
 
 import com.kalebits.dslist.dto.CartoonListDTO;
 import com.kalebits.dslist.dto.CartoonMinDTO;
+import com.kalebits.dslist.dto.ReplacementDTO;
 import com.kalebits.dslist.services.CartoonListService;
 import com.kalebits.dslist.services.CartoonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,4 +32,8 @@ public class CartoonListController {
         return result;
     }
 
+    @PostMapping(value ="/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body){
+        cartoonListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
+    }
 }
